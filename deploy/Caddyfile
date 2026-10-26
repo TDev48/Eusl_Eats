@@ -1,0 +1,27 @@
+# DOMAIN comes from the .env file.
+#   :80                      -> plain http (testing with the server's IP address)
+#   eusleats.duckdns.org     -> automatic free HTTPS certificate
+{$DOMAIN} {
+    encode gzip
+
+    header {
+        X-Content-Type-Options nosniff
+        Referrer-Policy strict-origin-when-cross-origin
+        -Server
+    }
+
+    # the application programming interface and uploaded food photos
+    handle /api/* {
+        reverse_proxy backend:8080
+    }
+
+    handle /uploads/* {
+        reverse_proxy backend:8080
+    }
+
+    # everything else is the website itself
+    handle {
+        root * /srv
+        file_server
+    }
+}

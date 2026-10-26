@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#105536">
+
+    <title>Food Menu | EUSL Eats</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* FOOD MENU PAGE */
+
+        .menu-page {
+            min-height: 75vh;
+            background: #f5f7fb;
+            padding-bottom: 60px;
+        }
+
+        .menu-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 58px 24px 68px;
+            color: #fff;
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(255,255,255,.13),
+                    transparent 30%
+                ),
+                linear-gradient(125deg, #101c35, #105536);
+        }
+
+        .menu-hero-inner {
+            max-width: 1160px;
+            margin: 0 auto;
+        }
+
+        .menu-eyebrow {
+            margin: 0 0 14px;
+            color: #a7f3d0;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .menu-hero h1 {
+            max-width: 650px;
+            margin: 0 0 16px;
+            color: #fff;
+            font-size: clamp(32px, 5vw, 49px);
+            line-height: 1.15;
+            letter-spacing: -1.5px;
+        }
+
+        .menu-hero-description {
+            max-width: 580px;
+            margin: 0;
+            color: #e0eee7;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .menu-hero-note {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 26px;
+            padding: 10px 15px;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 30px;
+            background: rgba(255,255,255,.09);
+            color: #fff;
+            font-size: 12px;
+        }
+
+        .menu-content {
+            width: calc(100% - 40px);
+            max-width: 1160px;
+            margin: -25px auto 0;
+            position: relative;
+        }
+
+        .menu-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+            padding: 22px;
+            border: 1px solid #e5eaf0;
+            border-radius: 17px;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(16,28,53,.07);
+        }
+
+        .menu-toolbar-title h2 {
+            margin: 0 0 6px;
+            color: #101c35;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .menu-toolbar-title p {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        
+
+/* FOOD SEARCH */
+.menu-search-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: min(100%, 440px);
+}
+
+.menu-search-field {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+}
+
+.menu-search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    width: 19px;
+    height: 19px;
+    transform: translateY(-50%);
+    color: #64748b;
+    pointer-events: none;
+}
+
+.menu-search {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px 15px 12px 44px;
+    border: 1px solid #dce3eb;
+    border-radius: 12px;
+    outline: none;
+    background: #f8fafc;
+    color: #101c35;
+    font: inherit;
+    font-size: 14px;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+}
+
+.menu-search::placeholder {
+    color: #94a3b8;
+}
+
+.menu-search:focus {
+    border-color: #059669;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(5, 150, 105, .12);
+}
+
+.menu-search-clear {
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid #dce3eb;
+    border-radius: 10px;
+    background: #fff;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+}
+
+.menu-search-clear:hover:not(:disabled),
+.menu-search-clear:focus-visible:not(:disabled) {
+    border-color: #105536;
+    background: #105536;
+    color: #fff;
+}
+
+.menu-search-clear:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+/* SEARCH RESULT STATUS */
+.menu-search-status {
+    width: 100%;
+    margin: 0;
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+@media (max-width: 560px) {
+    .menu-search-wrapper {
+        width: 100%;
+    }
+
+    .menu-search-clear {
+        padding: 0 12px;
+    }
+}
+
+
+        
+
+        .menu-section-heading {
+            margin: 34px 0 8px;
+            color: #101c35;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+        }
+
+        .menu-section-description {
+            margin: 0 0 22px;
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .menu-category-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .menu-category {
+            padding: 10px 16px;
+            border: 1px solid #dce3eb;
+            border-radius: 30px;
+            background: #fff;
+            color: #334155;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s, color .2s, border-color .2s;
+        }
+
+        .menu-category:hover,
+        .menu-category:focus-visible {
+            border-color: #105536;
+            background: #105536;
+            color: #fff;
+        }
+
+
+        
+.menu-category[aria-pressed="true"] {
+    border-color: #105536;
+    background: #105536;
+    color: #fff;
+    box-shadow: 0 3px 9px rgba(16, 85, 54, .15);
+}
+
+.menu-category:focus-visible {
+    outline: 3px solid rgba(5, 150, 105, .3);
+    outline-offset: 3px;
+}
+
+
+
+
+        .menu-items-panel {
+            padding: 24px;
+            border: 1px solid #e5eaf0;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 8px 28px rgba(16,28,53,.04);
+        }
+
+        .menu-items-heading {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .menu-items-heading h2 {
+            margin: 0;
+            color: #101c35;
+            font-size: 21px;
+            font-weight: 800;
+        }
+
+        .menu-live-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 11px;
+            border-radius: 20px;
+            background: #ecfdf5;
+            color: #047857;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .menu-live-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #10b981;
+        }
+
+        /* Loading and empty-state presentation */
+        #studentFoodList {
+            min-width: 0;
+            color: #475569;
+            line-height: 1.7;
+        }
+
+        #studentFoodList > p {
+            padding: 35px 12px;
+            color: #64748b;
+            text-align: center;
+        }
+
+        /* Keep dynamically generated food cards responsive.
+           Existing card selectors in style.css remain in effect. */
+        #studentFoodList .food-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        #studentFoodList .food-card {
+            min-width: 0;
+            overflow: hidden;
+            border: 1px solid #e5eaf0;
+            border-radius: 15px;
+            background: #fff;
+            box-shadow: 0 5px 18px rgba(16,28,53,.05);
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        #studentFoodList .food-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 13px 28px rgba(16,28,53,.10);
+        }
+
+        #studentFoodList .food-card-image {
+            height: 200px;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        #studentFoodList .food-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .35s;
+        }
+
+        #studentFoodList .food-card:hover .food-card-image img {
+            transform: scale(1.04);
+        }
+
+        @media (max-width: 850px) {
+            #studentFoodList .food-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .menu-hero {
+                padding: 46px 22px 58px;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .menu-content {
+                width: calc(100% - 24px);
+            }
+
+            .menu-hero {
+                padding: 38px 18px 54px;
+            }
+
+            .menu-toolbar {
+                padding: 18px;
+            }
+
+            .menu-search {
+                width: 100%;
+            }
+
+            .menu-items-panel {
+                padding: 15px;
+            }
+
+            #studentFoodList .food-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #studentFoodList .food-card-image {
+                height: 220px;
+            }
+
+            .menu-section-heading {
+                font-size: 21px;
+            }
+        
+        }
+
+        /* Ensure filtered food cards and messages actually hide */
+[hidden] {
+    display: none !important;
+}
+
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    
+
+<header>
+    <a class="store-logo" href="index.html">EUSL <span>Eats</span></a>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="stores.html">Stores</a>
+        <a href="student-order.html" aria-current="page">Food Menu</a>
+        <a href="login.html">Login</a>
+    </nav>
+    <button class="login-btn" id="logoutBtn">Logout</button>
+</header>
+
+
+
+    <main class="menu-page">
+
+        <!-- Hero -->
+        <section class="menu-hero">
+            <div class="menu-hero-inner">
+
+                <p class="menu-eyebrow">
+                    EUSL Eats · Campus Dining
+                </p>
+
+                <h1>Discover your next favourite meal.</h1>
+
+                <p class="menu-hero-description">
+                    Explore the available food items from your campus
+                    food outlets and find something delicious for today.
+                </p>
+
+                <div class="menu-hero-note">
+                    <span>🍽️</span>
+                    <span>Explore menus and available meals</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Menu content -->
+        <div class="menu-content">
+
+            <section class="menu-toolbar">
+
+                <div class="menu-toolbar-title">
+                    <h2>Explore the menu</h2>
+                    <p>Browse the food items currently available.</p>
+                </div>
+
+                
+
+<div class="menu-search-wrapper">
+    <div class="menu-search-field">
+        <svg
+            class="menu-search-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+        >
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-4-4"></path>
+        </svg>
+
+        <input
+            type="search"
+            id="menuSearchInput"
+            class="menu-search"
+            placeholder="Search food, meals or stores..."
+            aria-label="Search food by name, description or store"
+            aria-describedby="menuSearchHint"
+            autocomplete="off"
+        >
+    </div>
+
+    <button
+        type="button"
+        id="clearMenuSearch"
+        class="menu-search-clear"
+        aria-label="Clear food search"
+        disabled
+    >
+        Clear
+    </button>
+</div>
+
+<p
+    id="menuSearchHint"
+    class="menu-search-status"
+    aria-live="polite"
+>
+    Search by food name, description or store name.
+</p>
+
+
+
+            </section>
+
+            <section aria-labelledby="categoriesHeading">
+
+                <h2 class="menu-section-heading" id="categoriesHeading">
+                    Find something delicious
+                </h2>
+
+                <p class="menu-section-description">
+                    Choose a food category to explore.
+                </p>
+
+                
+<div class="menu-category-list" role="group" aria-label="Filter food by category">
+    <button
+        class="menu-category"
+        type="button"
+        data-category="all"
+        aria-pressed="true"
+    >All Food</button>
+
+    <button
+        class="menu-category"
+        type="button"
+        data-category="Rice &amp; Curry"
+        aria-pressed="false"
+    >Rice &amp; Curry</button>
+
+    <button
+        class="menu-category"
+        type="button"
+        data-category="Kottu"
+        aria-pressed="false"
+    >Kottu</button>
+
+    <button
+        class="menu-category"
+        type="button"
+        data-category="Fast Food"
+        aria-pressed="false"
+    >Fast Food</button>
+
+    <button
+        class="menu-category"
+        type="button"
+        data-category="Short Eats"
+        aria-pressed="false"
+    >Short Eats</button>
+
+    <button
+        class="menu-category"
+        type="button"
+        data-category="Drinks"
+        aria-pressed="false"
+    >Drinks</button>
+
+    <button
+        class="menu-category"
+        type="button"
+        data-category="Desserts"
+        aria-pressed="false"
+    >Desserts</button>
+</div>
+
+
+            </section>
+
+            <!-- IMPORTANT:
+                 Keep this ID for the existing JavaScript food loader. -->
+            <section class="menu-items-panel"
+                     aria-labelledby="availableFoodHeading">
+
+                <div class="menu-items-heading">
+                    <h2 id="availableFoodHeading">Available food items</h2>
+
+                    <span class="menu-live-label">
+                        <span class="menu-live-dot"></span>
+                        Menu
+                    </span>
+                </div>
+
+                <div id="studentFoodList" aria-live="polite">
+                    <p>Loading food items...</p>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+<footer class="store-dashboard-footer">
+        <p>© 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

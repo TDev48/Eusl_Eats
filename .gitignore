@@ -1,0 +1,14 @@
+# secrets and local files - never upload these
+deploy/.env
+deploy/backups/
+.env
+
+# build output and uploaded photos
+eusleats/eusl-eats/target/
+eusleats/eusl-eats/uploads/*
+!eusleats/eusl-eats/uploads/.gitkeep
+
+# editor and leftovers
+.vscode/
+SmartCafeteria/restore_files.ps1
+*.log

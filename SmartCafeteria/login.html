@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#105536">
+
+    <title>Login | EUSL Eats</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* LOGIN PAGE — PAGE-SPECIFIC STYLES */
+
+        .auth-page {
+            min-height: calc(100vh - 150px);
+            padding: 48px 20px 64px;
+            background: #f5f7fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-layout {
+            width: 100%;
+            max-width: 1050px;
+            display: grid;
+            grid-template-columns: 1fr 0.85fr;
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(16, 28, 53, 0.10);
+            border: 1px solid #e5eaf0;
+        }
+
+        .auth-welcome {
+            position: relative;
+            overflow: hidden;
+            padding: 56px 44px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            background:
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(255,255,255,.12),
+                    transparent 35%
+                ),
+                linear-gradient(145deg, #105536, #073b2a);
+        }
+
+        .auth-brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 52px;
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .auth-brand-icon {
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            background: rgba(255,255,255,.14);
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 13px;
+            font-size: 23px;
+        }
+
+        .auth-eyebrow {
+            margin-bottom: 12px;
+            color: #a7f3d0;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .auth-welcome h1 {
+            margin: 0 0 18px;
+            color: #fff;
+            font-size: clamp(32px, 4vw, 46px);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+        }
+
+        .auth-description {
+            max-width: 390px;
+            margin: 0;
+            color: #d8eee2;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .auth-features {
+            display: grid;
+            gap: 20px;
+            margin-top: 38px;
+        }
+
+        .auth-feature {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .auth-feature-icon {
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            border-radius: 13px;
+            background: rgba(255,255,255,.12);
+            font-size: 21px;
+        }
+
+        .auth-feature strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #fff;
+            font-size: 14px;
+        }
+
+        .auth-feature small {
+            color: #c5e4d3;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .auth-form-panel {
+            padding: 56px 42px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .auth-heading {
+            margin: 0 0 10px;
+            color: #101c35;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .auth-subtitle {
+            margin: 0 0 32px;
+            color: #64748b;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .auth-form {
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+        }
+
+        .auth-form > label {
+            margin-top: 10px;
+            color: #263548;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .auth-form input[type="email"],
+        .auth-form input[type="password"] {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 49px;
+            padding: 13px 15px;
+            border: 1px solid #dce3eb;
+            border-radius: 10px;
+            outline: none;
+            background: #fff;
+            color: #101c35;
+            font: inherit;
+            font-size: 14px;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .auth-form input:focus {
+            border-color: #059669;
+            box-shadow: 0 0 0 3px rgba(5,150,105,.12);
+        }
+
+        .auth-form input::placeholder {
+            color: #9aa6b5;
+        }
+
+        .auth-form .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 10px 0 14px;
+            font-size: 12px;
+        }
+
+        .auth-form .remember {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #64748b;
+            cursor: pointer;
+        }
+
+        .auth-form .remember input {
+            accent-color: #059669;
+        }
+
+        .auth-form a,
+        .auth-register a {
+            color: #07845d;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .auth-form a:hover,
+        .auth-register a:hover {
+            text-decoration: underline;
+        }
+
+        .auth-submit {
+            width: 100%;
+            min-height: 50px;
+            margin-top: 4px;
+            border: 0;
+            border-radius: 10px;
+            background: #105536;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background .2s, transform .2s;
+        }
+
+        .auth-submit:hover {
+            background: #08744b;
+            transform: translateY(-1px);
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin: 26px 0 22px;
+            color: #94a3b8;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: #e5eaf0;
+        }
+
+        .auth-register {
+            margin: 0;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .auth-footer {
+            padding: 22px 16px;
+            background: #fff;
+            color: #64748b;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .auth-footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 760px) {
+            .auth-page {
+                padding: 28px 14px 40px;
+            }
+
+            .auth-layout {
+                max-width: 500px;
+                grid-template-columns: 1fr;
+                border-radius: 18px;
+            }
+
+            .auth-welcome {
+                padding: 30px 26px;
+            }
+
+            .auth-brand {
+                margin-bottom: 28px;
+            }
+
+            .auth-welcome h1 {
+                font-size: 32px;
+            }
+
+            .auth-features {
+                grid-template-columns: 1fr;
+                gap: 14px;
+                margin-top: 25px;
+            }
+
+            .auth-form-panel {
+                padding: 34px 26px;
+            }
+
+            .auth-heading {
+                font-size: 27px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .auth-form-panel {
+                padding: 28px 18px;
+            }
+
+            .auth-form .form-options {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a class="store-logo" href="index.html">EUSL <span>Eats</span></a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="store-login.html">Store Login</a>
+            <a href="register.html">Student Registration</a>
+        </div>
+
+    </nav>
+
+    <main class="auth-page">
+        <section class="auth-layout" aria-label="EUSL Eats login">
+
+            <!-- Welcome panel -->
+            <div class="auth-welcome">
+
+                <div class="auth-brand">
+                    <span class="auth-brand-icon">🍴</span>
+                    <span>EUSL Eats</span>
+                </div>
+
+                <p class="auth-eyebrow">
+                    Your campus food destination
+                </p>
+
+                <h1>Good food.<br>Easy ordering.</h1>
+
+                <p class="auth-description">
+                    Welcome back! Sign in to explore campus food outlets,
+                    order your favourite meals, and keep track of your orders.
+                </p>
+
+                <div class="auth-features">
+
+                    <div class="auth-feature">
+                        <span class="auth-feature-icon">🍱</span>
+                        <div>
+                            <strong>Your favourite meals</strong>
+                            <small>Explore available food and menus.</small>
+                        </div>
+                    </div>
+
+                    <div class="auth-feature">
+                        <span class="auth-feature-icon">🛍️</span>
+                        <div>
+                            <strong>Convenient ordering</strong>
+                            <small>Place orders through one platform.</small>
+                        </div>
+                    </div>
+
+                    <div class="auth-feature">
+                        <span class="auth-feature-icon">📦</span>
+                        <div>
+                            <strong>Order updates</strong>
+                            <small>Keep track of your order status.</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Login form -->
+            <div class="auth-form-panel">
+
+                <h2 class="auth-heading">Welcome back</h2>
+
+                <p class="auth-subtitle">
+                    Enter your account details to continue.
+                </p>
+
+                <form id="loginForm" class="auth-form">
+
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+
+                    <button type="submit" class="auth-submit">
+                        Sign In →
+                    </button>
+
+                </form>
+
+                <div class="auth-divider">
+                    <span>NEW TO EUSL EATS?</span>
+                </div>
+
+                <p class="auth-register">
+                    Don't have an account?
+                    <a href="register.html">Create an account</a>
+                </p>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="auth-footer">
+        <p>© 2026 EUSL Eats · Eastern University, Sri Lanka</p>
+        <p><a href="admin-login.html">Administrator login</a></p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

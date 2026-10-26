@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store Notifications - EUSL Eats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+<header class="store-header">
+
+    <a href="index.html" class="store-logo">
+        EUSL <span>Eats</span>
+    </a>
+
+    <nav class="store-navigation">
+        <a href="store-dashboard.html">Dashboard</a>
+        <a href="store-menu.html">Menu</a>
+        <a href="store-orders.html">Orders</a>
+        <a href="store-notifications.html">Notifications</a>
+    </nav>
+
+    <button
+        type="button"
+        class="store-logout-button"
+        id="storeLogoutBtn"
+    >
+        Logout
+    </button>
+
+</header>
+
+    <main class="orders-container notifications-page store-notifications-page">
+        <section class="dashboard-hero">
+            <div class="hero-content">
+                <h1>Store Notifications</h1>
+                <p>New orders, cancellations and other order updates for your store.</p>
+            </div>
+            <div class="hero-image">
+                <img
+    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80"
+    alt="Digital service and customer notifications"
+    onerror="this.style.display='none'"
+>
+            </div>
+        </section>
+        <section class="info-box">
+            <div class="orders-toolbar">
+                <button type="button" id="markAllReadBtn" class="secondary-button">Mark all as read</button>
+                <button type="button" id="refreshNotificationsBtn" class="secondary-button">Refresh</button>
+            </div>
+            <div id="notificationsList" data-required-role="store" aria-live="polite">
+                <p class="loading-state">Loading notifications...</p>
+            </div>
+        </section>
+    </main>
+    <footer class="store-dashboard-footer">
+        <p>© 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>

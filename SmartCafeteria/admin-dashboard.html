@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - EUSL Eats</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <a class="store-logo" href="index.html">EUSL <span>Eats</span></a>
+
+        <nav></nav>
+
+        <button class="login-btn" id="adminLogoutBtn" type="button">
+            Logout
+        </button>
+
+    </header>
+
+    <main class="dashboard">
+
+        <section class="dashboard-welcome">
+
+            <h1>🛡️ Admin Dashboard</h1>
+
+            <p>
+                Approve or reject food stores. Only approved stores are shown
+                to students and can receive orders.
+            </p>
+
+        </section>
+
+        <section class="admin-summary" id="adminSummary"></section>
+
+        <section class="info-box">
+
+            <div class="orders-toolbar">
+                <label for="adminStatusFilter">Show</label>
+                <select id="adminStatusFilter">
+                    <option value="PENDING">Waiting for approval</option>
+                    <option value="APPROVED">Approved</option>
+                    <option value="REJECTED">Rejected</option>
+                    <option value="ALL">All stores</option>
+                </select>
+                <button type="button" id="adminRefreshBtn" class="secondary-button">↻ Refresh</button>
+            </div>
+
+            <div id="adminStoreList">
+                <p>Loading stores...</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 EUSL Eats</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/admin.js"></script>
+
+</body>
+
+</html>

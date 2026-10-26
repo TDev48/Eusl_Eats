@@ -1,0 +1,228 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Store Dashboard | EUSL Eats</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="store-dashboard-body">
+
+    <header class="store-header">
+        <a href="index.html" class="store-logo"
+           aria-label="EUSL Eats dashboard">
+            EUSL <span>Eats</span>
+        </a>
+
+        <nav class="store-navigation" aria-label="Main navigation">
+            <a href="store-dashboard.html" aria-current="page">Dashboard</a>
+            <a href="store-menu.html">Menu</a>
+            <a href="store-orders.html">Orders</a>
+            <a href="store-notifications.html">Notifications</a>
+        </nav>
+
+        <button type="button" class="store-logout-button"
+                id="storeLogoutBtn">
+            Logout
+        </button>
+    </header>
+
+    <main class="store-dashboard-page">
+
+        <section class="store-hero">
+            <div class="store-hero-content">
+                <span class="store-eyebrow">STORE MANAGEMENT</span>
+
+                <h1>
+                    Welcome back,<br>
+                    <span id="storeWelcomeName">Store Owner</span>
+                </h1>
+
+                <p>
+                    Manage your menu, monitor your store status, and keep
+                    student orders organized from one place.
+                </p>
+
+                <div class="store-hero-actions">
+                    <a href="store-menu.html" class="store-primary-button">
+                        Manage your menu
+                        <span aria-hidden="true">&rarr;</span>
+                    </a>
+
+                    <a href="store-orders.html" class="store-secondary-button">
+                        View orders
+                    </a>
+                </div>
+            </div>
+
+            <div class="store-hero-image">
+                <img
+                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+                    alt="Professionally arranged restaurant dining area"
+                    fetchpriority="high">
+                <div class="store-image-caption">
+                    <span>YOUR BUSINESS</span>
+                    <strong>Everything in one place.</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="store-status-panel" aria-labelledby="statusHeading">
+            <div class="store-status-copy">
+                <span class="store-section-label">ACCOUNT OVERVIEW</span>
+                <h2 id="statusHeading">Store approval status</h2>
+                <p>
+                    Check the current approval status of your store.
+                </p>
+            </div>
+
+            <span id="storeApprovalStatus"
+                  class="status-badge status-pending">
+                Loading...
+            </span>
+        </section>
+
+        <section class="store-quick-access"
+                 aria-labelledby="quickAccessHeading">
+
+            <div class="store-section-heading">
+                <div>
+                    <span class="store-section-label">QUICK ACCESS</span>
+                    <h2 id="quickAccessHeading">Manage your business</h2>
+                </div>
+
+                <p>Access the tools you need to run your store.</p>
+            </div>
+
+            <div class="store-action-grid">
+
+                <article class="store-action-card">
+                    <div class="store-card-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&amp;fit=crop&amp;w=900&amp;q=85"
+                            alt="Freshly prepared food presented for a menu">
+                    </div>
+
+                    <div class="store-card-content">
+                        <span class="store-card-number">01 / MENU</span>
+                        <h3>Menu management</h3>
+                        <p>
+                            Keep your food listings, prices, and availability
+                            up to date.
+                        </p>
+
+                        <a href="store-menu.html" class="store-card-link">
+                            Manage menu <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="store-action-card">
+                    <div class="store-card-image">
+                        
+<img
+    src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=900&q=85"
+    alt="Professional service counter"
+    loading="lazy">
+
+                    </div>
+
+                    <div class="store-card-content">
+                        <span class="store-card-number">02 / ORDERS</span>
+                        <h3>Student orders</h3>
+                        <p>
+                            Review incoming orders and manage their progress
+                            in one place.
+                        </p>
+
+                        <a href="store-orders.html" class="store-card-link">
+                            View orders <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section class="store-details-section"
+                 aria-labelledby="storeDetailsHeading">
+
+            <div class="store-section-heading">
+                <div>
+                    <span class="store-section-label">YOUR PROFILE</span>
+                    <h2 id="storeDetailsHeading">Store details</h2>
+                </div>
+
+                <p>Your registered business information.</p>
+            </div>
+
+            <div class="store-details-grid">
+
+                <article class="store-details-card">
+                    <div class="store-details-card-heading">
+                        <h3>Business information</h3>
+                        <p>Registered store details</p>
+                    </div>
+
+                    <dl class="store-detail-list">
+                        <div class="store-detail-row">
+                            <dt>Store name</dt>
+                            <dd id="storeName">Loading...</dd>
+                        </div>
+
+                        <div class="store-detail-row">
+                            <dt>Owner</dt>
+                            <dd id="storeOwner">Loading...</dd>
+                        </div>
+
+                        <div class="store-detail-row">
+                            <dt>Email address</dt>
+                            <dd id="storeEmail">Loading...</dd>
+                        </div>
+
+                        <div class="store-detail-row">
+                            <dt>Phone number</dt>
+                            <dd id="storePhone">Loading...</dd>
+                        </div>
+
+                        <div class="store-detail-row">
+                            <dt>Location</dt>
+                            <dd id="storeLocation">Loading...</dd>
+                        </div>
+                    </dl>
+                </article>
+
+                <article class="store-details-card store-description-card">
+                    <div class="store-details-card-heading">
+                        <h3>About your store</h3>
+                        <p>Business description</p>
+                    </div>
+
+                    <p id="storeDescription" class="store-description-text">
+                        Loading...
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="store-dashboard-footer">
+        <p>&copy; 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

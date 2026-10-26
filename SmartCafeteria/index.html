@@ -1,0 +1,1030 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#105536">
+
+    <title>EUSL Eats | University Food Ordering</title>
+    <meta name="description"
+          content="Discover campus food outlets and explore available meals with EUSL Eats.">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* HOMEPAGE ENHANCEMENTS */
+        .home-page {
+            background: #f7f9f7;
+        }
+
+        .home-page .welcome {
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+            padding: 76px 8%;
+            border-radius: 0 0 30px 30px;
+            background:
+                radial-gradient(circle at 90% 15%,
+                    rgba(167, 243, 208, .2), transparent 30%),
+                linear-gradient(120deg, #103e2b, #105536 60%, #087f5b);
+            color: #ffffff;
+        }
+
+        .home-page .welcome > div {
+            position: relative;
+            z-index: 1;
+            max-width: 760px;
+        }
+
+        .home-page .welcome .eyebrow {
+            display: inline-block;
+            padding: 9px 14px;
+            border: 1px solid rgba(255,255,255,.22);
+            border-radius: 30px;
+            background: rgba(255,255,255,.08);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .home-page .welcome h1 {
+            max-width: 700px;
+            margin: 22px 0 18px;
+            color: #ffffff;
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.12;
+            letter-spacing: -1.5px;
+        }
+
+        .home-page .welcome > div > p:not(.eyebrow) {
+            max-width: 570px;
+            color: #e4f3e9;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .home-page .welcome .primary-link,
+        .home-page .welcome .secondary-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 13px 21px;
+            border: 1px solid transparent;
+            border-radius: 10px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .2s ease, background .2s ease;
+        }
+
+        .home-page .welcome .primary-link:hover,
+        .home-page .welcome .secondary-link:hover {
+            transform: translateY(-2px);
+        }
+
+        .home-page .welcome .secondary-link:hover {
+            background: rgba(255,255,255,.12) !important;
+        }
+
+        .home-page .search-section {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            gap: 12px;
+            width: min(850px, 90%);
+            margin: -27px auto 0;
+            padding: 12px;
+            border: 1px solid #e5ebe6;
+            border-radius: 16px;
+            background: #ffffff;
+            box-shadow: 0 12px 35px rgba(16, 60, 38, .09);
+        }
+
+        .home-page .search-section input {
+            flex: 1;
+            min-width: 0;
+            min-height: 48px;
+            padding: 12px 16px;
+            border: 1px solid transparent;
+            border-radius: 9px;
+            outline-offset: 2px;
+            background: #f6f8f6;
+            font: inherit;
+        }
+
+        .home-page .search-section input:focus {
+            border-color: #059669;
+        }
+
+        .home-page .search-section button {
+            min-height: 48px;
+            padding: 12px 22px;
+            border: 0;
+            border-radius: 9px;
+            background: #105536;
+            color: white;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .home-page .search-section button:hover {
+            background: #087f5b;
+        }
+
+        
+.home-page .categories,
+.home-page .outlets {
+    padding: 20px 7%;
+}
+
+.home-page .popular {
+    padding: 20px 24px;
+}
+
+
+        .home-page .categories h2,
+        .home-page .outlets h2,
+        .home-page .popular h2 {
+            margin-bottom: 10px;
+            color: #183c2b;
+            font-size: clamp(25px, 3vw, 34px);
+            letter-spacing: -.5px;
+        }
+
+        .home-page .section-description {
+            margin: 0 0 28px;
+            color: #69766e;
+            line-height: 1.7;
+        }
+
+        
+
+.home-page .category-container {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 22px;
+    width: 100%;
+}
+
+
+
+        .home-page .category-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+            min-height: 145px;
+            padding: 20px 12px;
+            border: 1px solid #e6ece7;
+            border-radius: 15px;
+            background: #ffffff;
+            color: #244633;
+            cursor: pointer;
+            transition: border-color 0.15s ease,
+            box-shadow 0.15s ease;
+        }
+
+        
+.home-page .category-card:hover {
+    transform: none;
+    border-color: #9acbb0;
+    box-shadow: 0 5px 14px rgba(16, 60, 38, 0.07);
+}
+
+
+        .home-page .category-icon {
+            display: grid;
+            width: 58px;
+            height: 58px;
+            place-items: center;
+            border-radius: 16px;
+            background: #eaf5ed;
+            font-size: 29px;
+        }
+
+        .home-page .category-name {
+            font-size: 14px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        
+/* Upgraded food category section */
+.home-page .categories {
+    padding: 42px 7% 38px;
+}
+
+.home-page .category-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 25px;
+}
+
+.home-page .category-heading h2 {
+    margin: 8px 0 10px;
+    color: #183c2b;
+    font-size: clamp(25px, 3vw, 34px);
+    letter-spacing: -.5px;
+}
+
+.home-page .category-eyebrow {
+    color: #087f5b;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.home-page .category-heading .section-description {
+    max-width: 620px;
+    margin: 0;
+}
+
+.home-page .category-view-all {
+    flex-shrink: 0;
+    margin-bottom: 5px;
+    color: #105536;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.home-page .category-view-all:hover {
+    color: #087f5b;
+}
+
+.home-page .category-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.home-page .category-card {
+    min-width: 0;
+    min-height: 0;
+    padding: 0 0 17px;
+    gap: 0;
+    overflow: hidden;
+    align-items: stretch;
+    justify-content: flex-start;
+    border: 1px solid #e4ebe5;
+    border-radius: 17px;
+    background: #ffffff;
+    color: #244633;
+    text-align: left;
+}
+
+
+.home-page .category-card:hover {
+    transform: none;
+    border-color: #9acbb0;
+    box-shadow: 0 5px 14px rgba(16, 60, 38, 0.07);
+}
+
+
+.home-page .category-image-wrap {
+    position: relative;
+    width: 100%;
+    height: 165px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #eaf5ed, #d5eadb);
+}
+
+.home-page .category-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease;
+}
+
+.home-page .category-card:hover .category-image {
+    transform: scale(1.05);
+}
+
+.home-page .category-card .category-icon {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background: transparent;
+    font-size: 48px;
+}
+
+.home-page .category-name {
+    padding: 15px 15px 0;
+    color: #183c2b;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: left;
+}
+
+.home-page .category-caption {
+    padding: 5px 15px 0;
+    color: #738077;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+    .home-page .category-heading {
+        align-items: flex-start;
+    }
+
+    .home-page .category-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .home-page .category-image-wrap {
+        height: 135px;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-page .categories {
+        padding: 30px 5% 28px;
+    }
+
+    .home-page .category-heading {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .home-page .category-container {
+        gap: 12px;
+    }
+
+    .home-page .category-image-wrap {
+        height: 115px;
+    }
+
+    .home-page .category-name {
+        padding: 12px 10px 0;
+        font-size: 13px;
+    }
+
+    .home-page .category-caption {
+        padding: 5px 10px 0;
+        font-size: 11px;
+    }
+}
+
+/* Tablets and mobile */
+@media (max-width: 760px) {
+    .home-page .category-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    .home-page .category-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
+
+
+        .home-page .outlet-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .home-page .outlet-card {
+            overflow: hidden;
+            border: 1px solid #e5ebe6;
+            border-radius: 18px;
+            background: #ffffff;
+            box-shadow: 0 5px 20px rgba(16, 60, 38, .035);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .home-page .outlet-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(16, 60, 38, .09);
+        }
+
+        .home-page .outlet-image {
+            display: grid;
+            min-height: 150px;
+            place-items: center;
+            background: linear-gradient(135deg, #e8f5eb, #d4ecdc);
+            font-size: 58px;
+        }
+
+        .home-page .outlet-content {
+    padding: 20px;
+}
+
+        .home-page .outlet-content h3 {
+            margin: 0 0 10px;
+            color: #183c2b;
+            font-size: 21px;
+        }
+
+        .home-page .outlet-content p {
+            margin: 0 0 22px;
+            color: #69766e;
+            line-height: 1.8;
+        }
+
+        .home-page .outlet-content .primary-link,
+        .home-page .popular .primary-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 45px;
+            padding: 12px 18px;
+            border-radius: 9px;
+            background: #105536;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .2s ease;
+        }
+
+        .home-page .outlet-content .primary-link:hover,
+        .home-page .popular .primary-link:hover {
+            background: #087f5b;
+        }
+
+        
+.home-page .popular {
+    width: auto;
+    max-width: 1100px;
+    box-sizing: border-box;
+    margin: 0 auto 55px;
+    padding: 42px 24px;
+    border: 1px solid #dcebe0;
+    border-radius: 20px;
+    background: linear-gradient(120deg, #edf7ef, #ffffff);
+    text-align: center;
+}
+
+.home-page .popular h2 {
+    width: 100%;
+    margin: 0 auto 10px;
+    text-align: center;
+}
+
+.home-page .popular .section-description {
+    width: 100%;
+    max-width: 580px;
+    margin: 0 auto 24px;
+    text-align: center;
+}
+
+.home-page .popular .primary-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+
+        .home-page .popular .section-description {
+            max-width: 580px;
+            margin: 0 auto 24px;
+        }
+
+        .home-page + footer {
+            padding: 35px 20px;
+            background: #102f22;
+            color: #e6f1e9;
+            text-align: center;
+        }
+
+        .home-page + footer h3 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .home-page + footer p {
+            color: #cfdfd3;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 760px) {
+            .home-page .welcome {
+                padding: 55px 6% 65px;
+            }
+
+            .home-page .category-container {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 12px;
+            }
+
+            .home-page .outlet-container {
+                grid-template-columns: 1fr;
+            }
+
+            .home-page .categories {
+    padding: 30px 7% 10px;
+}
+
+.home-page .outlets {
+    padding: 10px 7% 30px;
+}
+
+            .home-page .popular {
+                margin: 0 6% 38px;
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .home-page .welcome h1 {
+                font-size: 36px;
+            }
+
+            .home-page .search-section {
+                flex-direction: column;
+            }
+
+            .home-page .search-section button {
+                width: 100%;
+            }
+
+            .home-page .category-container {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .home-page *,
+            .home-page *::before,
+            .home-page *::after {
+                scroll-behavior: auto !important;
+                transition: none !important;
+            }
+        }
+
+        /* How it works section */
+       .home-page .how-it-works {
+    padding: 35px 7%;
+    background: #f7f9f7;
+}
+
+        .home-page .how-it-works-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .home-page .how-it-works h2 {
+            color: #183c2b;
+            font-size: clamp(25px, 3vw, 34px);
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .home-page .how-it-works .section-description {
+            color: #69766e;
+            margin: 0 0 40px;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .home-page .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+        }
+
+        .home-page .how-card {
+            background: #ffffff;
+            border: 1px solid #e6ece7;
+            border-radius: 20px;
+            padding: 32px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+
+        .home-page .how-card:hover {
+            transform: translateY(-4px);
+            border-color: #9acbb0;
+            box-shadow: 0 12px 30px rgba(16, 60, 38, .08);
+        }
+
+        .home-page .how-icon {
+            font-size: 40px;
+            margin-bottom: 16px;
+        }
+
+        .home-page .how-card h3 {
+            color: #105536;
+            font-size: 20px;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .home-page .how-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 24px;
+            color: #4a5a50;
+            line-height: 1.8;
+        }
+
+        .home-page .how-card ul li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .home-page .how-card ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #105536;
+            font-weight: 800;
+        }
+
+        .home-page .how-card .primary-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 10px 20px;
+            border: 1px solid #105536;
+            border-radius: 10px;
+            background: #105536;
+            color: #ffffff;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: auto;
+        }
+
+        .home-page .how-card .primary-link:hover {
+            background: #087f5b;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .home-page .how-it-works-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    
+
+
+<header class="app-header">
+    <a class="store-logo" href="index.html">EUSL <span>Eats</span></a>
+
+    <nav></nav>
+
+    <button type="button" class="login-btn" id="logoutBtn" style="display: none;">
+        Logout
+    </button>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <main class="home-page">
+
+        <!-- Hero -->
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">
+                    YOUR CAMPUS FOOD DESTINATION
+                </p>
+
+                <h1>Good Food.<br>Right on Campus.</h1>
+
+                <p>
+                    Discover campus food outlets, explore delicious meals,
+                    and find your next favourite with EUSL Eats.
+                </p>
+
+                <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:25px;">
+                    <a class="primary-link"
+                       href="student-order.html"
+                       style="background:#ffffff;color:#105536;">
+                        Explore Food Menu →
+                    </a>
+
+                    <a class="secondary-link"
+                       href="stores.html"
+                       style="background:transparent;border-color:rgba(255,255,255,.5);color:#ffffff;">
+                        Discover Stores
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Food search -->
+        <section class="search-section" role="search">
+            <input
+                id="homeFoodSearch"
+                type="search"
+                placeholder="Search rice, burgers, drinks..."
+                aria-label="Search food menu"
+                autocomplete="off"
+            >
+
+            <button id="homeSearchButton" type="button">
+                Search Food
+            </button>
+        </section>
+
+        
+<!-- Categories -->
+<section class="categories">
+    <div class="category-heading">
+        <div>
+            <span class="category-eyebrow">EXPLORE THE MENU</span>
+            <h2>Explore Food Categories</h2>
+            <p class="section-description">
+                From comforting rice and curry to quick bites, discover
+                something delicious for your next campus meal.
+            </p>
+        </div>
+
+        <a href="student-order.html" class="category-view-all">
+            View all food <span aria-hidden="true">→</span>
+        </a>
+    </div>
+
+    <div class="category-container">
+
+        <button class="category-card home-category"
+                type="button" data-category="Rice &amp; Curry">
+            <div class="category-image-wrap">
+                <img class="category-image"
+                     src="images/rice-curry.jpg"
+                     alt="Rice and curry"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <span class="category-icon" style="display:none;">🍚</span>
+            </div>
+            <span class="category-name">Rice &amp; Curry</span>
+            <span class="category-caption">Traditional favourites</span>
+        </button>
+
+        <button class="category-card home-category"
+                type="button" data-category="Fast Food">
+            <div class="category-image-wrap">
+                <img class="category-image"
+                     src="images/fast-food.jpg"
+                     alt="Fast food"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <span class="category-icon" style="display:none;">🍔</span>
+            </div>
+            <span class="category-name">Fast Food</span>
+            <span class="category-caption">Quick and tasty</span>
+        </button>
+
+        <button class="category-card home-category"
+                type="button" data-category="Kottu">
+            <div class="category-image-wrap">
+                <img class="category-image"
+                     src="images/kottu.jpg"
+                     alt="Sri Lankan kottu"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <span class="category-icon" style="display:none;">🍜</span>
+            </div>
+            <span class="category-name">Kottu</span>
+            <span class="category-caption">A local classic</span>
+        </button>
+
+        <button class="category-card home-category"
+                type="button" data-category="Drinks">
+            <div class="category-image-wrap">
+                <img class="category-image"
+                     src="images/drinks.jpg"
+                     alt="Refreshing drinks"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <span class="category-icon" style="display:none;">🥤</span>
+            </div>
+            <span class="category-name">Drinks</span>
+            <span class="category-caption">Refresh yourself</span>
+        </button>
+
+        <button class="category-card home-category"
+                type="button" data-category="Desserts">
+            <div class="category-image-wrap">
+                <img class="category-image"
+                     src="images/desserts.jpg"
+                     alt="Desserts"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <span class="category-icon" style="display:none;">🍰</span>
+            </div>
+            <span class="category-name">Desserts</span>
+            <span class="category-caption">Something sweet</span>
+        </button>
+
+        <button class="category-card home-category"
+                type="button" data-category="Short Eats">
+            <div class="category-image-wrap">
+                <img class="category-image"
+                     src="images/short-eats.jpg"
+                     alt="Sri Lankan short eats and snacks"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+                <span class="category-icon" style="display:none;">🥟</span>
+            </div>
+            <span class="category-name">Short Eats</span>
+            <span class="category-caption">Perfect little bites</span>
+        </button>
+
+    </div>
+</section>
+
+
+        <!-- Food outlets -->
+        <section class="outlets">
+            <h2>Discover Food Outlets</h2>
+
+            <p class="section-description">
+                Choose an outlet and explore its available menu.
+            </p>
+
+            <div class="outlet-container">
+
+                <article class="outlet-card">
+                    <div class="outlet-image" aria-hidden="true">🍽️</div>
+
+                    <div class="outlet-content">
+                        <h3>Checkout Menu</h3>
+
+                        <p>
+                            Explore affordable meals and everyday favourites
+                            for university students.
+                        </p>
+
+                        <a class="primary-link" href="student-order.html">
+                            View Food Menu →
+                        </a>
+                    </div>
+                </article>
+
+                <article class="outlet-card">
+                    <div class="outlet-image" aria-hidden="true">🏪</div>
+
+                    <div class="outlet-content">
+                        <h3>Nearby Food Stores</h3>
+
+                        <p>
+                            Discover participating food outlets and browse
+                            their available food items.
+                        </p>
+
+                        <a class="primary-link" href="stores.html">
+                            Explore Stores →
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- How it works / Manage platform -->
+        <section class="how-it-works">
+            <div class="how-it-works-inner">
+                <h2>How EUSL Eats Works</h2>
+                <p class="section-description">
+                    A complete campus food ordering platform designed for
+                    students and food stores alike.
+                </p>
+
+                <div class="how-it-works-grid">
+                    <div class="how-card student-card">
+                        <div class="how-icon"></div>
+                        <h3>For Students</h3>
+                        <ul>
+                            <li>Browse food categories and nearby stores</li>
+                            <li>Search meals without typing exact names</li>
+                            <li>Add items to cart and place orders</li>
+                            <li>Track your orders from dashboard</li>
+                            <li>View notifications and order updates</li>
+                        </ul>
+                        <a class="primary-link" href="student-order.html">
+                            Start Ordering →
+                        </a>
+                    </div>
+
+                    <div class="how-card store-card">
+                        <div class="how-icon"></div>
+                        <h3>For Food Stores</h3>
+                        <ul>
+                            <li>Manage your food menu and prices</li>
+                            <li>View and update incoming orders</li>
+                            <li>Check store approval status</li>
+                            <li>Send notifications to students</li>
+                            <li>Track order history and earnings</li>
+                        </ul>
+                        <a class="primary-link" href="store-login.html">
+                            Manage Your Store →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Browse menu -->
+        <section class="popular">
+            <h2>Ready to Find Your Next Meal?</h2>
+
+            <p class="section-description">
+                Browse available food items and discover something
+                delicious for your next campus meal.
+            </p>
+
+            <a class="primary-link" href="student-order.html">
+                Browse All Food →
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <h3 class="store-logo">EUSL <span>Eats</span></h3>
+
+        <p>Smart food ordering for university students.</p>
+        <p>© 2026 EUSL Eats · Eastern University, Sri Lanka</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Homepage search and category interactions -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const searchInput = document.getElementById("homeFoodSearch");
+            const searchButton = document.getElementById("homeSearchButton");
+            const categories = document.querySelectorAll(".home-category");
+
+            function openFoodMenu(searchTerm, category) {
+                const params = new URLSearchParams();
+
+                if (searchTerm) {
+                    params.set("search", searchTerm);
+                }
+
+                if (category) {
+                    params.set("category", category);
+                }
+
+                const query = params.toString();
+                const destination = "student-order.html" +
+                    (query ? "?" + query : "");
+
+                window.location.href = destination;
+            }
+
+            searchButton.addEventListener("click", function () {
+                openFoodMenu(searchInput.value.trim(), "");
+            });
+
+            searchInput.addEventListener("keydown", function (event) {
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    openFoodMenu(searchInput.value.trim(), "");
+                }
+            });
+
+            categories.forEach(function (categoryButton) {
+                categoryButton.addEventListener("click", function () {
+                    openFoodMenu("", categoryButton.dataset.category);
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,310 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notifications - EUSL Eats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .student-notifications-page {
+            width: calc(100% - 32px);
+            max-width: 900px;
+            min-height: 0;
+            margin: 25px auto;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .student-notifications-page [hidden] { display: none !important; }
+        .student-notifications-page .sn-hero {
+            --hero-bg: #eef9f1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 240px;
+            margin-bottom: 34px;
+            padding: 48px 54px;
+            overflow: hidden;
+            border: 1px solid #d3ead9;
+            border-radius: 22px;
+            background: linear-gradient(115deg, var(--hero-bg) 0%, #e2f3e8 100%);
+            box-shadow: 0 10px 30px rgba(16, 28, 53, 0.07);
+        }
+        .student-notifications-page .sn-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 560px;
+        }
+        .student-notifications-page .sn-eyebrow {
+            display: block;
+            margin-bottom: 12px;
+            color: #1f8a5a;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .student-notifications-page .sn-hero h1 {
+            margin: 0 0 12px;
+            color: #17402b;
+            font-size: clamp(28px, 3.4vw, 42px);
+            font-weight: 800;
+            line-height: 1.12;
+            letter-spacing: -1.3px;
+        }
+        .student-notifications-page .sn-hero p {
+            margin: 0;
+            color: #4d6657;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+        .student-notifications-page .sn-hero-image {
+            position: absolute;
+            inset: 0 0 0 auto;
+            z-index: 1;
+            width: 44%;
+            background:
+                linear-gradient(90deg, var(--hero-bg) 0%, rgba(238, 249, 241, 0) 72%),
+                url("https://images.unsplash.com/photo-1531483101689-7ac07b4a9b76?auto=format&fit=crop&w=1200&q=85")
+                center / cover no-repeat;
+        }
+        .student-notifications-page .sn-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+            padding: 18px 24px;
+            border: 1px solid #e1eae4;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(16, 28, 53, 0.05);
+        }
+        .student-notifications-page .sn-toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .student-notifications-page .sn-toolbar button {
+            min-height: 40px;
+            padding: 9px 16px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        .student-notifications-page .sn-toolbar button.secondary-button {
+            border: 1px solid #e1eae4;
+            background: #fff;
+            color: #4d6657;
+        }
+        .student-notifications-page .sn-toolbar button.secondary-button:hover:not(:disabled) {
+            border-color: #1f8a5a;
+            color: #1f8a5a;
+            background: #f0f8f2;
+        }
+        .student-notifications-page .sn-toolbar button:disabled {
+            opacity: 0.48;
+            cursor: not-allowed;
+        }
+        .student-notifications-page .notification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .student-notifications-page .notification-item {
+            display: grid;
+            grid-template-columns: 24px minmax(0, 1fr) auto;
+            gap: 16px;
+            align-items: center;
+            padding: 18px 20px;
+            border: 1px solid #e1eae4;
+            border-radius: 14px;
+            background: #fff;
+            transition: all 0.2s ease;
+        }
+        .student-notifications-page .notification-item.notification-unread {
+            background: #eef9f1;
+            border-left: 4px solid #1f8a5a;
+        }
+        .student-notifications-page .notification-item:hover {
+            border-color: #c8ddce;
+            box-shadow: 0 5px 15px rgba(28, 67, 42, 0.045);
+            transform: translateY(-1px);
+        }
+        .student-notifications-page .notification-select-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .student-notifications-page .notification-select {
+            width: 18px;
+            height: 18px;
+            accent-color: #1f8a5a;
+        }
+        .student-notifications-page .notification-body {
+            min-width: 0;
+        }
+        .student-notifications-page .notification-message {
+            margin: 0 0 6px;
+            color: #17402b;
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .student-notifications-page .notification-message .notification-new {
+            color: #1f8a5a;
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-right: 6px;
+        }
+        .student-notifications-page .notification-time {
+            margin: 0;
+            color: #7a897f;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .student-notifications-page .notification-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+        .student-notifications-page .notification-link {
+            padding: 8px 14px;
+            border: 1px solid #e1eae4;
+            border-radius: 10px;
+            background: #fff;
+            color: #4d6657;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .student-notifications-page .notification-link:hover {
+            border-color: #1f8a5a;
+            color: #1f8a5a;
+        }
+        .student-notifications-page .notification-read-btn {
+            padding: 8px 14px;
+            border: 1px solid #e1eae4;
+            border-radius: 10px;
+            background: #fff;
+            color: #4d6657;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .student-notifications-page .notification-read-btn:hover {
+            border-color: #1f8a5a;
+            color: #1f8a5a;
+        }
+        .student-notifications-page .notification-read-btn:disabled {
+            opacity: 0.48;
+            cursor: not-allowed;
+        }
+        .student-notifications-page .sn-empty {
+            text-align: center;
+            padding: 60px 24px;
+            border: 1px solid #e1eae4;
+            border-radius: 20px;
+            background: #fff;
+        }
+        .student-notifications-page .sn-empty h3 {
+            margin: 0 0 8px;
+            color: #17402b;
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .student-notifications-page .sn-empty p {
+            margin: 0;
+            color: #7a897f;
+            font-size: 15px;
+        }
+        @media (max-width: 768px) {
+            .student-notifications-page {
+                width: calc(100% - 24px);
+                padding: 0;
+            }
+            .student-notifications-page .sn-hero {
+                flex-direction: column;
+                padding: 36px 28px;
+                min-height: auto;
+                gap: 24px;
+            }
+            .student-notifications-page .sn-hero-image {
+                position: relative;
+                inset: auto;
+                width: 100%;
+                height: 200px;
+                margin-top: 20px;
+            }
+            .student-notifications-page .sn-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .student-notifications-page .sn-toolbar-actions {
+                justify-content: stretch;
+            }
+            .student-notifications-page .sn-toolbar button {
+                flex: 1;
+                text-align: center;
+            }
+            .student-notifications-page .notification-item {
+                grid-template-columns: 20px minmax(0, 1fr);
+                gap: 12px;
+            }
+            .student-notifications-page .notification-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .student-notifications-page .notification-link,
+            .student-notifications-page .notification-read-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="store-logo" href="index.html">EUSL <span>Eats</span></a>
+        <nav></nav>
+    </header>
+    <main class="orders-container notifications-page student-notifications-page">
+        <section class="sn-hero">
+            <div class="sn-hero-content">
+                <span class="sn-eyebrow">Updates &amp; Alerts</span>
+                <h1>My Notifications</h1>
+                <p>Stay informed about your orders, status changes, and store announcements.</p>
+            </div>
+            <div class="sn-hero-image" role="img" aria-label="Smartphone notifications screen"></div>
+        </section>
+        <section class="sn-panel">
+            <div class="sn-toolbar">
+                <div class="sn-toolbar-actions">
+                    <button type="button" id="markAllReadBtn" class="secondary-button">Mark all as read</button>
+                    <button type="button" id="refreshNotificationsBtn" class="secondary-button">Refresh</button>
+                    <button type="button" id="clearSelectedNotificationsBtn" class="secondary-button" disabled>🗑 Clear Selected</button>
+                </div>
+            </div>
+            <div id="notificationsList" data-required-role="student" aria-live="polite">
+                <p class="loading-state">Loading notifications…</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="store-dashboard-footer">
+        <p>© 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/notifications.js"></script>
+</body>
+</html>

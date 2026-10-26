@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Store Menu | EUSL Eats</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+</head>
+
+<body class="store-menu-view">
+
+<header class="store-menu-header">
+    <a href="index.html" class="store-menu-logo">
+        EUSL <span>Eats</span>
+    </a>
+
+    <nav class="store-menu-navigation" aria-label="Main navigation">
+        <a href="student-dashboard.html">Dashboard</a>
+        <a href="stores.html" aria-current="page">Stores</a>
+        <a href="student-order.html">Food</a>
+        <a href="student-orders.html">My Orders</a>
+        <a href="cart.html" class="store-menu-cart">
+            Cart <span class="cart-count" data-cart-count>0</span>
+        </a>
+    </nav>
+
+    <button type="button" class="store-menu-logout" id="logoutBtn">
+        Logout
+    </button>
+</header>
+
+<main class="store-menu-main">
+
+    <section class="store-menu-hero">
+        <div class="store-menu-hero-content">
+            <span class="store-menu-eyebrow">DISCOVER YOUR NEXT MEAL</span>
+
+            <h1 id="storeName">Store Menu</h1>
+
+            <p class="store-menu-intro">
+                Explore freshly prepared meals and find something delicious
+                for your next campus break.
+            </p>
+
+            <p class="store-menu-location" id="storeLocation"></p>
+
+            <a href="stores.html" class="store-menu-back">
+                <span aria-hidden="true">←</span> Back to Stores
+            </a>
+        </div>
+
+       
+    </section>
+
+    <section class="store-menu-section">
+        <div class="store-menu-section-heading">
+            <div>
+                <span class="store-menu-section-label">MADE FOR YOU</span>
+                <h2>Explore the Menu</h2>
+                <p>Browse the food and prices available at this store.</p>
+            </div>
+        </div>
+
+        <div class="store-menu-food-area">
+            <div id="storeFoodList" class="store-menu-food-grid">
+                <div class="store-menu-loading">
+                    <span class="store-menu-loading-icon">🍲</span>
+                    <h3>Preparing the menu</h3>
+                    <p>Loading available food items...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="store-dashboard-footer">
+        <p>© 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+
+<script src="js/config.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/script.js"></script>
+<script src="js/stores.js"></script>
+
+</body>
+</html>

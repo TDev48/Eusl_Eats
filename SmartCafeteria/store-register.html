@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Store Registration - EUSL Eats</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <a class="store-logo" href="index.html">EUSL <span>Eats</span></a>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="store-login.html">Store Login</a>
+            <a href="login.html">Student Login</a>
+        </div>
+
+    </nav>
+
+
+    <section class="login-section">
+
+        <div class="login-container">
+
+            <div class="login-info">
+
+                <h1>Join EUSL Eats!</h1>
+
+                <p>
+                    Register your food store and start
+                    serving students through EUSL Eats.
+                </p>
+
+                <div class="login-features">
+
+                    <div>
+                        <span>🏪</span>
+                        <p>Manage your food store</p>
+                    </div>
+
+                    <div>
+                        <span>🍔</span>
+                        <p>Add and manage your food menu</p>
+                    </div>
+
+                    <div>
+                        <span>📦</span>
+                        <p>Receive student orders</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="login-box">
+
+                <h2>Store Registration</h2>
+
+                <p class="login-subtitle">
+                    Create your food store account
+                </p>
+
+
+                <form id="storeRegisterForm">
+
+
+                    <label for="storeOwnerName">
+                        Owner Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="storeOwnerName"
+                        placeholder="Enter owner's full name"
+                        required
+                    >
+
+
+                    <label for="storeEmail">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="storeEmail"
+                        placeholder="Enter store owner's email"
+                        required
+                    >
+
+
+                    <label for="storePhone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="storePhone"
+                        placeholder="Enter phone number"
+                        required
+                    >
+
+
+                    <label for="storeName">
+                        Store Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="storeName"
+                        placeholder="Enter your store name"
+                        required
+                    >
+
+
+                    <label for="storeLocation">
+                        Store Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="storeLocation"
+                        placeholder="Enter your store location"
+                        required
+                    >
+
+
+                    <label for="storeDescription">
+                        Store Description
+                    </label>
+
+                    <textarea
+                        id="storeDescription"
+                        placeholder="Describe your food store"
+                        rows="4"
+                    ></textarea>
+
+
+                    <label for="storePassword">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="storePassword"
+                        placeholder="Create a password"
+                        required
+                    >
+
+
+                    <label for="storeConfirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="storeConfirmPassword"
+                        placeholder="Confirm your password"
+                        required
+                    >
+
+
+                    <div class="form-options">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                                id="storeTerms"
+                                required
+                            >
+
+                            I agree to the terms and conditions
+
+                        </label>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="login-submit"
+                    >
+                        Register Store
+                    </button>
+
+                </form>
+
+
+                <div class="divider">
+                    <span>OR</span>
+                </div>
+
+
+                <p class="register-text">
+
+                    Already have a store account?
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="store-dashboard-footer">
+        <p>&copy; 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

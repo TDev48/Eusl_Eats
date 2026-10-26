@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Store Orders | EUSL Eats</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="store-orders-page">
+
+    
+<header class="store-header">
+
+    
+
+    <a href="index.html" class="store-logo">
+        EUSL <span>Eats</span>
+    </a>
+
+    <nav class="store-navigation">
+        <a href="store-dashboard.html">Dashboard</a>
+        <a href="store-menu.html">Menu</a>
+        <a href="store-orders.html">Orders</a>
+        <a href="store-notifications.html">Notifications</a>
+    </nav>
+
+    <button
+        type="button"
+        class="store-logout-button"
+        id="storeLogoutBtn"
+    >
+        Logout
+    </button>
+
+</header>
+
+
+    <main class="orders-main">
+
+        <section class="orders-hero">
+            <div class="orders-hero-content">
+                <span class="orders-eyebrow">STORE MANAGEMENT</span>
+                <h1>Student Orders</h1>
+                <p>Review incoming orders, track progress and keep every order moving smoothly.</p>
+            </div>
+            <div class="orders-hero-image" role="img" aria-label="Professional food service counter"></div>
+        </section>
+
+        <section class="orders-workspace">
+            <div class="orders-section-heading">
+                <div>
+                    <span class="orders-eyebrow">ORDER MANAGEMENT</span>
+                    <h2>Your Orders</h2>
+                    <p>Live order information from your store.</p>
+                </div>
+            </div>
+
+            <div id="storeOrderSummary" class="orders-summary" aria-live="polite">
+                <article class="orders-summary-card">
+                    <span>Total orders</span>
+                    <strong id="summaryTotal">—</strong>
+                    <small>Orders received</small>
+                </article>
+                <article class="orders-summary-card">
+                    <span>Pending</span>
+                    <strong id="summaryPending">—</strong>
+                    <small>Awaiting action</small>
+                </article>
+                <article class="orders-summary-card">
+                    <span>In progress</span>
+                    <strong id="summaryProgress">—</strong>
+                    <small>Accepted or preparing</small>
+                </article>
+                <article class="orders-summary-card">
+                    <span>Completed</span>
+                    <strong id="summaryCompleted">—</strong>
+                    <small>Successfully completed</small>
+                </article>
+            </div>
+
+            <section class="orders-panel" aria-label="Orders list">
+                <div class="orders-panel-heading">
+                    <div>
+                        <h2>Order records</h2>
+                        <p>Manage order statuses and review order details below.</p>
+                    </div>
+                </div>
+
+                <div id="storeOrdersList" class="store-orders-list">
+                    <p class="orders-loading">Loading orders...</p>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <footer class="store-dashboard-footer">
+        <p>© 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

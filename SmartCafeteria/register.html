@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#105536">
+
+    <title>Create Account | EUSL Eats</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* REGISTRATION PAGE STYLES */
+
+        .register-page {
+            min-height: calc(100vh - 150px);
+            padding: 42px 20px 60px;
+            background: #f5f7fb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .register-layout {
+            width: 100%;
+            max-width: 1080px;
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            background: #fff;
+            border: 1px solid #e5eaf0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(16, 28, 53, .09);
+        }
+
+        .register-welcome {
+            padding: 44px 36px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #fff;
+            background:
+                radial-gradient(circle at 90% 10%,
+                    rgba(255,255,255,.12), transparent 35%),
+                linear-gradient(145deg, #105536, #073b2a);
+        }
+
+        .register-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 45px;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 800;
+        }
+
+        .register-brand-icon {
+            width: 46px;
+            height: 46px;
+            display: grid;
+            place-items: center;
+            border: 1px solid rgba(255,255,255,.2);
+            border-radius: 14px;
+            background: rgba(255,255,255,.12);
+            font-size: 23px;
+        }
+
+        .register-eyebrow {
+            margin: 0 0 13px;
+            color: #a7f3d0;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .register-welcome h1 {
+            margin: 0 0 18px;
+            color: #fff;
+            font-size: clamp(30px, 3.5vw, 42px);
+            line-height: 1.15;
+            letter-spacing: -1.2px;
+        }
+
+        .register-welcome > p:not(.register-eyebrow) {
+            margin: 0;
+            color: #d8eee2;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .register-benefits {
+            display: grid;
+            gap: 22px;
+            margin-top: 36px;
+        }
+
+        .register-benefit {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+        }
+
+        .register-benefit-icon {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: rgba(255,255,255,.12);
+            font-size: 20px;
+        }
+
+        .register-benefit strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .register-benefit small {
+            color: #c5e4d3;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .register-form-panel {
+            padding: 42px 40px;
+        }
+
+        .register-heading {
+            margin: 0 0 9px;
+            color: #101c35;
+            font-size: 29px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .register-description {
+            margin: 0 0 26px;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .register-form > label:not(.register-terms) {
+            margin-top: 8px;
+            color: #263548;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .register-form input:not([type="checkbox"]),
+        .register-form select {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 45px;
+            padding: 11px 13px;
+            border: 1px solid #dce3eb;
+            border-radius: 9px;
+            outline: none;
+            background: #fff;
+            color: #101c35;
+            font: inherit;
+            font-size: 13px;
+            transition: border-color .2s, box-shadow .2s;
+        }
+
+        .register-form input::placeholder {
+            color: #9aa6b5;
+        }
+
+        .register-form input:focus,
+        .register-form select:focus {
+            border-color: #059669;
+            box-shadow: 0 0 0 3px rgba(5,150,105,.12);
+        }
+
+        .register-form select {
+            cursor: pointer;
+        }
+
+        .register-form .register-terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 9px;
+            margin: 15px 0 8px;
+            color: #64748b;
+            font-size: 12px;
+            line-height: 1.6;
+            cursor: pointer;
+        }
+
+        .register-form .register-terms input {
+            flex-shrink: 0;
+            margin-top: 3px;
+            accent-color: #059669;
+        }
+
+        .register-button {
+            width: 100%;
+            min-height: 49px;
+            margin-top: 6px;
+            border: none;
+            border-radius: 10px;
+            background: #105536;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: background .2s, transform .2s;
+        }
+
+        .register-button:hover {
+            background: #08744b;
+            transform: translateY(-1px);
+        }
+
+        .register-existing {
+            margin: 22px 0 0;
+            color: #64748b;
+            font-size: 13px;
+            line-height: 1.7;
+            text-align: center;
+        }
+
+        .register-existing a {
+            color: #07845d;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .register-existing a:hover {
+            text-decoration: underline;
+        }
+
+        .register-footer {
+            padding: 22px 16px;
+            background: #fff;
+            color: #64748b;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .register-footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 760px) {
+            .register-page {
+                padding: 26px 14px 40px;
+            }
+
+            .register-layout {
+                max-width: 520px;
+                grid-template-columns: 1fr;
+                border-radius: 18px;
+            }
+
+            .register-welcome {
+                padding: 28px 25px;
+            }
+
+            .register-brand {
+                margin-bottom: 26px;
+            }
+
+            .register-welcome h1 {
+                font-size: 31px;
+            }
+
+            .register-benefits {
+                gap: 14px;
+                margin-top: 24px;
+            }
+
+            .register-form-panel {
+                padding: 32px 25px;
+            }
+
+            .register-heading {
+                font-size: 26px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .register-form-panel {
+                padding: 27px 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <a class="store-logo" href="index.html">EUSL <span>Eats</span></a>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="stores.html">Stores</a>
+            <a href="student-order.html">Food Menu</a>
+            <a href="login.html">Login</a>
+        </nav>
+    </header>
+
+    <main class="register-page">
+
+        <section class="register-layout"
+                 aria-label="Create an EUSL Eats account">
+
+            <!-- Welcome panel -->
+            <div class="register-welcome">
+
+                <div class="register-brand">
+                    <span class="register-brand-icon">🍴</span>
+                    <span>EUSL Eats</span>
+                </div>
+
+                <p class="register-eyebrow">
+                    Welcome to campus dining
+                </p>
+
+                <h1>Your next favourite meal starts here.</h1>
+
+                <p>
+                    Create your student account to explore campus food
+                    outlets, browse available meals, and manage your orders
+                    in one convenient place.
+                </p>
+
+                <div class="register-benefits">
+
+                    <div class="register-benefit">
+                        <span class="register-benefit-icon">🍱</span>
+                        <div>
+                            <strong>Explore food choices</strong>
+                            <small>Discover available meals and outlets.</small>
+                        </div>
+                    </div>
+
+                    <div class="register-benefit">
+                        <span class="register-benefit-icon">🛒</span>
+                        <div>
+                            <strong>Simple ordering</strong>
+                            <small>Keep your food orders organized.</small>
+                        </div>
+                    </div>
+
+                    <div class="register-benefit">
+                        <span class="register-benefit-icon">🎓</span>
+                        <div>
+                            <strong>Made for campus life</strong>
+                            <small>A convenient food platform for students.</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Registration form -->
+            <div class="register-form-panel">
+
+                <h2 class="register-heading">Create your account</h2>
+
+                <p class="register-description">
+                    Enter your details below to get started.
+                </p>
+
+                <form id="registerForm" class="register-form">
+
+                    <label for="studentID">Student ID</label>
+                    <input
+                        type="text"
+                        id="studentID"
+                        placeholder="Enter your student ID"
+                        autocomplete="username"
+                        required
+                    >
+
+                    <label for="fullName">Full name</label>
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+
+                    <label for="registerEmail">University email</label>
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        placeholder="Enter your university email"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <label for="phone">Phone number</label>
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        autocomplete="tel"
+                        required
+                    >
+
+                    <label for="faculty">Faculty</label>
+                    <select id="faculty" name="faculty" required>
+                        <option value="">Select your faculty</option>
+                        <option value="Faculty of Science">
+                            Faculty of Science
+                        </option>
+                        <option value="Faculty of Commerce and Management">
+                            Faculty of Commerce and Management
+                        </option>
+                        <option value="Faculty of Arts and Culture">
+                            Faculty of Arts and Culture
+                        </option>
+                        <option value="Faculty of Technology">
+                            Faculty of Technology
+                        </option>
+                        <option value="Faculty of Agriculture">
+                            Faculty of Agriculture
+                        </option>
+                    </select>
+
+                    <label for="registerPassword">Password</label>
+                    <input
+                        type="password"
+                        id="registerPassword"
+                        placeholder="Create a password"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <label for="confirmPassword">Confirm password</label>
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Enter your password again"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <label class="register-terms">
+                        <input type="checkbox" required>
+                        <span>
+                            I agree to the terms and conditions.
+                        </span>
+                    </label>
+
+                    <button type="submit" class="register-button">
+                        Create Account →
+                    </button>
+
+                </form>
+
+                <p class="register-existing">
+                    Already have an account?
+                    <a href="login.html">Sign in</a>
+                </p>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="register-footer">
+        <p>© 2026 EUSL Eats · Eastern University, Sri Lanka</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

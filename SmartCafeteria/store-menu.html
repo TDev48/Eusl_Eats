@@ -1,0 +1,460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Menu - EUSL Eats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet">
+<style>
+
+/* Compact Manage Your Menu banner */
+.store-menu-page .dashboard-welcome.menu-hero {
+    width: 100%;
+    height: 230px;
+    margin: 0 0 22px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #e0ebe5;
+    border-radius: 18px;
+    background: #f3f8f5;
+    box-shadow: 0 8px 24px rgba(19, 56, 46, 0.06);
+}
+
+.store-menu-page .dashboard-welcome.menu-hero img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (max-width: 600px) {
+    .store-menu-page .dashboard-welcome.menu-hero {
+        height: 125px;
+        margin-bottom: 18px;
+        border-radius: 12px;
+    }
+}
+</style>
+
+</head>
+
+<body class="store-menu-page">
+
+    
+<header class="store-header">
+
+    <a href="index.html" class="store-logo">
+        EUSL <span>Eats</span>
+    </a>
+
+    <nav class="store-navigation">
+        <a href="store-dashboard.html">Dashboard</a>
+        <a href="store-menu.html">Menu</a>
+        <a href="store-orders.html">Orders</a>
+        <a href="store-notifications.html">Notifications</a>
+    </nav>
+
+    <button
+        type="button"
+        class="store-logout-button"
+        id="storeLogoutBtn"
+    >
+        Logout
+    </button>
+
+</header>
+
+
+    <main class="dashboard">
+
+        <section class="dashboard-welcome menu-hero">
+    <img
+        src="images/store-menu-hero.png"
+        alt="Manage Your Menu — add and manage the food items available in your store."
+    >
+</section>
+
+        <!-- Add Food Item -->
+        <section class="info-box">
+            <h2>➕ Add New Food Item</h2>
+
+            <form id="addFoodForm">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="foodName">Food Name</label>
+                        <input type="text" id="foodName"
+                               placeholder="Enter food name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foodCategory">Category</label>
+                        <select id="foodCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="1">Rice &amp; Curry</option>
+                            <option value="2">Kottu</option>
+                            <option value="3">Fast Food</option>
+                            <option value="4">Short Eats</option>
+                            <option value="5">Drinks</option>
+                            <option value="6">Desserts</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="foodDescription">Description</label>
+                    <textarea id="foodDescription"
+                              placeholder="Enter food description"
+                              rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="foodPrice">Base Price (LKR)</label>
+                    <input type="number" id="foodPrice"
+                           placeholder="Enter base price"
+                           min="0.01" step="0.01" required>
+                    <small>
+                        Used for this item when no size options are configured.
+                    </small>
+                </div>
+
+                
+<div class="size-options-section">
+    <div class="size-options-heading">
+        <h3>Optional Size Options</h3>
+        <p>Enable the sizes you offer and set a price for each one.</p>
+    </div>
+
+    <div class="size-options-grid">
+        <div class="size-option">
+            <label class="size-option-toggle" for="addSmallEnabled">
+                <input type="checkbox" id="addSmallEnabled">
+                <span>Small</span>
+            </label>
+            <label for="addSmallPrice">Price (LKR)</label>
+            <input type="number" id="addSmallPrice"
+                   min="0.01" step="0.01"
+                   placeholder="Enter price" disabled>
+        </div>
+
+        <div class="size-option">
+            <label class="size-option-toggle" for="addMediumEnabled">
+                <input type="checkbox" id="addMediumEnabled">
+                <span>Medium</span>
+            </label>
+            <label for="addMediumPrice">Price (LKR)</label>
+            <input type="number" id="addMediumPrice"
+                   min="0.01" step="0.01"
+                   placeholder="Enter price" disabled>
+        </div>
+
+        <div class="size-option">
+            <label class="size-option-toggle" for="addLargeEnabled">
+                <input type="checkbox" id="addLargeEnabled">
+                <span>Large</span>
+            </label>
+            <label for="addLargePrice">Price (LKR)</label>
+            <input type="number" id="addLargePrice"
+                   min="0.01" step="0.01"
+                   placeholder="Enter price" disabled>
+        </div>
+    </div>
+</div>
+
+
+                <div class="form-group">
+                    <label for="foodImage">Food Image</label>
+                    <input type="file" id="foodImage" accept="image/*">
+                    <small>Select an image from your device (maximum 5 MB).</small>
+                    <img id="foodImagePreview"
+                         alt="Selected food image preview"
+                         style="display:none; max-width:200px; max-height:160px;
+                                object-fit:cover; margin-top:10px;
+                                border-radius:10px;">
+                </div>
+
+                <div class="form-group form-checkbox">
+                    <label for="foodAvailability">
+                        <input type="checkbox" id="foodAvailability" checked>
+                        Food is available
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-add">Add Item</button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Edit Food Item -->
+        <section class="info-box" id="editFoodSection" style="display:none;">
+
+            <h2>✏️ Edit Food Item</h2>
+
+            <form id="editFoodForm" onsubmit="return false;">
+
+                <input type="hidden" id="editFoodId">
+
+                <div class="form-group">
+                    <label for="editFoodName">Food Name</label>
+                    <input type="text" id="editFoodName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editFoodDescription">Description</label>
+                    <textarea id="editFoodDescription" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="editFoodCategory">Category</label>
+                    <select id="editFoodCategory" required>
+                        <option value="">Select Category</option>
+                        <option value="1">Rice &amp; Curry</option>
+                        <option value="2">Kottu</option>
+                        <option value="3">Fast Food</option>
+                        <option value="4">Short Eats</option>
+                        <option value="5">Drinks</option>
+                        <option value="6">Desserts</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="editFoodPrice">Base Price (LKR)</label>
+                    <input type="number" id="editFoodPrice"
+                           min="0.01" step="0.01" required>
+                    <small>
+                        Used when this item has no configured size options.
+                    </small>
+                </div>
+
+                
+
+                <!-- Optional Size Options -->
+<div class="size-options-section">
+
+    <div class="size-options-heading">
+        <h3>Optional Size Options</h3>
+        <p>
+            Enable only the sizes you offer.
+            Each enabled size must have its own price.
+        </p>
+    </div>
+
+    <div class="size-options-grid">
+
+        <!-- Small -->
+        <div class="size-option">
+            <label class="size-option-toggle" for="editSmallEnabled">
+                <input type="checkbox" id="editSmallEnabled">
+                Small
+            </label>
+
+            <label for="editSmallPrice">Small Price (LKR)</label>
+            <input
+                type="number"
+                id="editSmallPrice"
+                min="0.01"
+                step="0.01"
+                placeholder="Enter price"
+                disabled
+            >
+        </div>
+
+        <!-- Medium -->
+        <div class="size-option">
+            <label class="size-option-toggle" for="editMediumEnabled">
+                <input type="checkbox" id="editMediumEnabled">
+                Medium
+            </label>
+
+            <label for="editMediumPrice">Medium Price (LKR)</label>
+            <input
+                type="number"
+                id="editMediumPrice"
+                min="0.01"
+                step="0.01"
+                placeholder="Enter price"
+                disabled
+            >
+        </div>
+
+        <!-- Large -->
+        <div class="size-option">
+            <label class="size-option-toggle" for="editLargeEnabled">
+                <input type="checkbox" id="editLargeEnabled">
+                Large
+            </label>
+
+            <label for="editLargePrice">Large Price (LKR)</label>
+            <input
+                type="number"
+                id="editLargePrice"
+                min="0.01"
+                step="0.01"
+                placeholder="Enter price"
+                disabled
+            >
+        </div>
+
+    </div>
+</div>
+                <div class="form-group">
+                    <label for="editFoodImage">Replace Food Image (optional)</label>
+                    <input type="file" id="editFoodImage" accept="image/*">
+                    <input type="hidden" id="editFoodCurrentImage">
+                    <small>Leave empty to keep the current image.</small>
+                    <img id="editFoodImagePreview"
+                         alt="Food image preview"
+                         style="display:none; max-width:200px; max-height:160px;
+                                object-fit:cover; margin-top:10px;
+                                border-radius:10px;">
+                </div>
+
+                <div class="form-group form-checkbox">
+                    <label for="editFoodAvailability">
+                        <input type="checkbox" id="editFoodAvailability">
+                        Food is available
+                    </label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="login-submit">
+                        Save Changes
+                    </button>
+
+                    <button type="button" id="cancelEditBtn">
+                        Cancel
+                    </button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Existing Food Items -->
+        <section class="info-box menu-list-section">
+            <h2>Your Food Items</h2>
+            <div id="foodItemsList">
+                <p>Loading food items...</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="store-dashboard-footer">
+        <p>© 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- Food image previews and size-price controls -->
+    <script>
+        function configureSizePrice(checkboxId, priceId) {
+            const checkbox = document.getElementById(checkboxId);
+            const price = document.getElementById(priceId);
+
+            function updatePriceField() {
+                price.disabled = !checkbox.checked;
+                price.required = checkbox.checked;
+
+                if (!checkbox.checked) {
+                    price.value = "";
+                }
+            }
+
+            checkbox.addEventListener("change", updatePriceField);
+            updatePriceField();
+        }
+
+        [
+            ["addSmallEnabled", "addSmallPrice"],
+            ["addMediumEnabled", "addMediumPrice"],
+            ["addLargeEnabled", "addLargePrice"],
+            ["editSmallEnabled", "editSmallPrice"],
+            ["editMediumEnabled", "editMediumPrice"],
+            ["editLargeEnabled", "editLargePrice"]
+        ].forEach(([checkboxId, priceId]) => {
+            configureSizePrice(checkboxId, priceId);
+        });
+
+        const foodImageInput = document.getElementById("foodImage");
+        const foodImagePreview = document.getElementById("foodImagePreview");
+
+        foodImageInput.addEventListener("change", () => {
+            const file = foodImageInput.files[0];
+
+            if (!file) {
+                foodImagePreview.removeAttribute("src");
+                foodImagePreview.style.display = "none";
+                return;
+            }
+
+            if (!file.type.startsWith("image/")) {
+                alert("Please select an image file.");
+                foodImageInput.value = "";
+                foodImagePreview.style.display = "none";
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert("Image must be 5 MB or smaller.");
+                foodImageInput.value = "";
+                foodImagePreview.style.display = "none";
+                return;
+            }
+
+            foodImagePreview.src = URL.createObjectURL(file);
+            foodImagePreview.style.display = "block";
+        });
+
+        const editFoodImageInput = document.getElementById("editFoodImage");
+        const editFoodImagePreview =
+            document.getElementById("editFoodImagePreview");
+
+        editFoodImageInput.addEventListener("change", () => {
+            const file = editFoodImageInput.files[0];
+
+            if (!file) {
+                const currentImage =
+                    document.getElementById("editFoodCurrentImage").value;
+
+                if (currentImage) {
+                    editFoodImagePreview.src =
+                        new URL(currentImage, SERVER_ORIGIN).href;
+                    editFoodImagePreview.style.display = "block";
+                } else {
+                    editFoodImagePreview.removeAttribute("src");
+                    editFoodImagePreview.style.display = "none";
+                }
+
+                return;
+            }
+
+            if (!file.type.startsWith("image/")) {
+                alert("Please select an image file.");
+                editFoodImageInput.value = "";
+                return;
+            }
+
+            if (file.size > 5 * 1024 * 1024) {
+                alert("Image must be 5 MB or smaller.");
+                editFoodImageInput.value = "";
+                return;
+            }
+
+            editFoodImagePreview.src = URL.createObjectURL(file);
+            editFoodImagePreview.style.display = "block";
+        });
+    </script>
+
+</body>
+</html>

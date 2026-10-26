@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - EUSL Eats</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a class="store-logo" href="index.html">EUSL <span>Eats</span></a>
+        <nav>
+            <a href="student-dashboard.html" aria-current="page">Dashboard</a>
+            <a href="stores.html">Stores</a>
+            <a href="student-order.html">Food Menu</a>
+            <a href="student-orders.html">My Orders</a>
+            <a href="cart.html">Cart <span class="cart-count" data-cart-count>0</span></a>
+        </nav>
+        <button class="login-btn" id="logoutBtn">Logout</button>
+    </header>
+    <main class="dashboard student-dashboard-page">
+        <section class="dashboard-hero">
+    <div class="hero-content">
+        <span class="hero-eyebrow">STUDENT DASHBOARD</span>
+        <h1>Welcome back, <span id="welcomeName">Student</span></h1>
+        <p>Manage your campus dining experience. Browse stores, place orders, and track your deliveries.</p>
+        <div class="hero-actions">
+            <a class="hero-btn hero-btn-primary" href="student-order.html">Browse food <span>→</span></a>
+            <a class="hero-btn hero-btn-secondary" href="student-orders.html">My orders</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80" alt="Campus cafeteria interior">
+    </div>
+</section>
+
+        <section class="dashboard-cards">
+            <div class="dashboard-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=400&q=80" alt="Fresh prepared meals">
+                </div>
+                <div class="card-content">
+                    <h2>Browse Food</h2>
+                    <p>Explore food stores and available meals across campus.</p>
+                    <a class="btn-card" href="student-order.html">Browse Food <span>→</span></a>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=400&q=80" alt="Shopping cart">
+                </div>
+                <div class="card-content">
+                    <h2>My Cart</h2>
+                    <p>View the food items you have added to your cart.</p>
+                    <a class="btn-card" href="cart.html">View Cart <span>→</span></a>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=400&q=80" alt="Freshly prepared food order" onerror="this.style.display='none'">
+                </div>
+                <div class="card-content">
+                    <h2>My Orders</h2>
+                    <p>Track your current and previous orders.</p>
+                    <a class="btn-card" href="student-orders.html">View Orders <span>→</span></a>
+                </div>
+            </div>
+            <div class="dashboard-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=400&q=80" alt="Order updates and notifications" onerror="this.style.display='none'">
+                </div>
+                <div class="card-content">
+                    <h2>Notifications</h2>
+                    <p>Check updates about your orders and store announcements.</p>
+                    <a class="btn-card" href="student-notifications.html">View Notifications <span>→</span></a>
+                </div>
+            </div>
+        </section>
+        <section class="dashboard-info">
+            <div class="info-box">
+                <h2>Account Information</h2>
+                <div class="info-item">
+                    <span class="info-label">Student ID:</span>
+                    <span id="studentId">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Name:</span>
+                    <span id="studentName">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Email:</span>
+                    <span id="studentEmail">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Phone:</span>
+                    <span id="studentPhone">Loading...</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Faculty:</span>
+                    <span id="studentFaculty">Loading...</span>
+                </div>
+            </div>
+            <div class="info-box">
+                <h2>Current Order</h2>
+                <p id="currentOrder" class="order-placeholder">You don't have any active orders.</p>
+            </div>
+        </section>
+    </main>
+    <footer class="store-dashboard-footer">
+        <p>© 2026 EUSL Eats. All rights reserved.</p>
+    </footer>
+    <script src="js/config.js"></script>
+    <script src="js/layout.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
