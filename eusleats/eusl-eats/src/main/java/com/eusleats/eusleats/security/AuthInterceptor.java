@@ -246,6 +246,9 @@ if (delete && seg.length == 5
                 return put && seg.length == 4
                         && seg[3].equals("read");
 
+                                      case "admin":
+                   return role.equals("ADMIN"); 
+
             default:
                 return false;
         }
