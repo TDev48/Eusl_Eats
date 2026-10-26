@@ -246,9 +246,17 @@ if (delete && seg.length == 5
                 return put && seg.length == 4
                         && seg[3].equals("read");
 
+<<<<<<< HEAD
                                       case "admin":
                    return role.equals("ADMIN"); 
 
+=======
+
+
+               case "admin":
+                   return role.equals("ADMIN");
+                   
+>>>>>>> 39af2dee2bb5014edad4d391b58ae5ec0de7bdb9
             default:
                 return false;
         }
